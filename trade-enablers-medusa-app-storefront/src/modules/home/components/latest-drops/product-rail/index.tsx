@@ -20,7 +20,7 @@ export default async function LatestDropRail({
     <div className="content-container py-12 small:py-24">
       <div className="flex justify-between mb-8">
         <p className="txt-xlarge">Latest Drops</p>
-        <InteractiveLink href={`/products/latest-drop`}>
+        <InteractiveLink href={`/products/latest-drops`}>
           View all
         </InteractiveLink>
       </div>

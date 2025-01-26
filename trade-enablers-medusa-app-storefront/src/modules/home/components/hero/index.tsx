@@ -1,5 +1,6 @@
 import { Github } from "@medusajs/icons"
-import { Button, Heading } from "@medusajs/ui"
+import { Heading } from "@medusajs/ui"
+import { Button } from "@medusajs/ui"
 import Image from "next/image"
 import Rocket from "@modules/common/icons/Rocket.svg"
 
