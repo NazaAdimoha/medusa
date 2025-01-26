@@ -6,8 +6,8 @@ import Rocket from "@modules/common/icons/Rocket.svg"
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-[#F8F9FB]">
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
+    <div className="h-[85vh] w-full border-b border-ui-border-base relative bg-[#F8F9FB]">
+      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center p-8 small:p-32 gap-6">
         <span>
           <Heading
             level="h1"

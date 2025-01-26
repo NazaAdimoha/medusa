@@ -36,13 +36,13 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <div className="py-12">
+      <div className="py-6">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={featured} region={region} />
         </ul>
       </div>
 
-      <div className="py-12">
+      <div className="py-6">
         <ul className="flex flex-col gap-x-6">
           <LatestDrops products={latestDrops.products} />
         </ul>
