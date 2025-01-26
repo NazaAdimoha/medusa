@@ -1,5 +1,6 @@
 import { retrieveCollection } from "@lib/data/collections"
 import {  listProductsFeatured } from "@lib/data/products"
+import { getProductPrice } from "@lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
@@ -21,6 +22,13 @@ export default async function ProductRail({
 
   if (!products) {
     return null
+  }
+
+  const getPrices = (product: HttpTypes.StoreProduct) => {
+    const price = getProductPrice({
+        product,
+      })
+    return price  
   }
 
   return (
