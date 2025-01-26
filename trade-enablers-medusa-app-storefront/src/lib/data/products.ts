@@ -7,6 +7,37 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import { getAuthHeaders, getCacheOptions } from "./cookies"
 import { getRegion, retrieveRegion } from "./regions"
 
+export const listProductsFeatured = async (): Promise<{
+  products: HttpTypes.StoreProduct[]
+  limit: number
+  offset: number
+}> => {
+  const { products, limit, offset } = await sdk.store.product.list()
+  const featuedProducts = products.filter((product) => product.collection?.title === "featured")
+  return {
+    products: featuedProducts,
+    limit,
+    offset,
+  }
+}
+
+export const listProductsLatest = async (): Promise<{
+  products: HttpTypes.StoreProduct[]
+  limit: number
+  offset: number
+}> => {
+  const { products, limit, offset } = await sdk.store.product.list()
+  const latestProducts = products.sort((a, b) => {
+    return new Date(b.created_at ?? "").getTime() - new Date(a.created_at ?? "").getTime()
+  })
+
+  return {
+    products: latestProducts,
+    limit,
+    offset,
+  }
+}
+
 export const listProducts = async ({
   pageParam = 1,
   queryParams,

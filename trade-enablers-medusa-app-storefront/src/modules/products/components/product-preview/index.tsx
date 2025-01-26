@@ -13,7 +13,7 @@ export default async function ProductPreview({
 }: {
   product: HttpTypes.StoreProduct
   isFeatured?: boolean
-  region: HttpTypes.StoreRegion
+  region?: HttpTypes.StoreRegion
 }) {
   // const pricedProduct = await listProducts({
   //   regionId: region.id,

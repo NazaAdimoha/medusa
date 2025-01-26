@@ -9,15 +9,11 @@ export const retrieveCollection = async (id: string) => {
     ...(await getCacheOptions("collections")),
   }
 
-  return sdk.client
-    .fetch<{ collection: HttpTypes.StoreCollection }>(
-      `/store/collections/${id}`,
-      {
-        next,
-        cache: "force-cache",
-      }
-    )
-    .then(({ collection }) => collection)
+  return sdk.store.collection
+    .retrieve(id)
+    .then(({ collection }) => {
+      return collection
+    })
 }
 
 export const listCollections = async (
@@ -30,16 +26,11 @@ export const listCollections = async (
   queryParams.limit = queryParams.limit || "100"
   queryParams.offset = queryParams.offset || "0"
 
-  return sdk.client
-    .fetch<{ collections: HttpTypes.StoreCollection[]; count: number }>(
-      "/store/collections",
-      {
-        query: queryParams,
-        next,
-        cache: "force-cache",
-      }
-    )
-    .then(({ collections }) => ({ collections, count: collections.length }))
+  return sdk.store
+    .collection.list()
+    .then(({ collections }) => {
+      return { collections, count: collections.length }
+    })
 }
 
 export const getCollectionByHandle = async (

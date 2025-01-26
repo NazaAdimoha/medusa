@@ -1,21 +1,15 @@
 import { retrieveCollection } from "@lib/data/collections"
-import {  listProductsFeatured } from "@lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import ProductPreview from "@modules/products/components/product-preview"
 
-export default async function ProductRail({
-  collection,
-  region,
+export default async function LatestDropRail({
+  products,
 }: {
-  collection: HttpTypes.StoreCollection
-  region: HttpTypes.StoreRegion
+  products: HttpTypes.StoreProduct[]
 }) {
-  console.log('collection', collection)
-  const {products} = await listProductsFeatured()
-
   console.log('products', products)
 
   if (!products) {
@@ -25,8 +19,8 @@ export default async function ProductRail({
   return (
     <div className="content-container py-12 small:py-24">
       <div className="flex justify-between mb-8">
-        <p className="txt-xlarge">{collection.title}</p>
-        <InteractiveLink href={`/collections/${collection.handle}`}>
+        <p className="txt-xlarge">Latest Drops</p>
+        <InteractiveLink href={`/products/latest-drop`}>
           View all
         </InteractiveLink>
       </div>
@@ -34,7 +28,7 @@ export default async function ProductRail({
         {products &&
           products.map((product) => (
             <li key={product.id}>
-              <ProductPreview product={product} region={region} isFeatured />
+              <ProductPreview product={product} />
             </li>
           ))}
       </ul>

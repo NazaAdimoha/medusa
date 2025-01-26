@@ -7,6 +7,8 @@ export const getAuthHeaders = async (): Promise<
   const cookies = await nextCookies()
   const token = cookies.get("_medusa_jwt")?.value
 
+  console.log("token:::", token)
+
   if (!token) {
     return {}
   }

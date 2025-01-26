@@ -162,27 +162,31 @@
 
 import Image from "next/image";
 import Logo from "@modules/common/icons/footer-te.svg";
-import { Github, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Twitter, Instagram } from "lucide-react";
+import { Github, Facebook } from "@medusajs/icons"
+import { Button } from "@medusajs/ui";
+
 
 export default function Footer() {
   return (
     <footer className="bg-[#F8F9FB] border-t border-gray-200 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
-        <div className="flex flex-col items-center text-center py-10">
+        <div className="flex justify-start flex-col items-start text-center py-10">
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
             Launch Your E-Commerce today with our ready-made template.
           </h2>
-          <button className="mt-4 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-900">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              <Github size={20} /> View on GitHub
-            </a>
-          </button>
+
+          <Button variant="secondary" className="flex-1">
+          <a
+          href="https://github.com/medusajs/nextjs-starter-medusa"
+          target="_blank"
+        >
+            View on GitHub
+            <Github />
+          </a>  
+          </Button>
+
         </div>
 
         {/* Divider */}
@@ -247,10 +251,10 @@ export default function Footer() {
           <p>©2024 Trade Enablers. All rights reserved</p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <Github size={20} className="hover:text-gray-800" />
+              <Github className="hover:text-gray-800" />
             </a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <Facebook size={20} className="hover:text-gray-800" />
+              <Facebook className="hover:text-gray-800" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
               <Twitter size={20} className="hover:text-gray-800" />
