@@ -114,13 +114,13 @@ export async function addToCart({
 }: {
   variantId: string
   quantity: number
-  countryCode: string
+  countryCode?: string
 }) {
   if (!variantId) {
     throw new Error("Missing variant ID when adding to cart")
   }
 
-  const cart = await getOrSetCart(countryCode)
+  const cart = await getOrSetCart(countryCode || "")
 
   if (!cart) {
     throw new Error("Error retrieving or creating cart")
